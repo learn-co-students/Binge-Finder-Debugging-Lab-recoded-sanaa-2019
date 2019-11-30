@@ -15,7 +15,6 @@ class App extends Component {
   };
   componentDidMount() {
     Adapter.getShows().then(shows => this.setState({ shows }));
-    this.displayShows();
   }
 
   componentDidUpdate() {
