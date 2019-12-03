@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import Adapter from '../Adapter';
-import TVShowList from './TVShowList';
-import Nav from './Nav';
+import TVShowList from '../Components/TVShowList';
+import Nav from '../Components/Nav';
 import SelectedShowContainer from './SelectedShowContainer';
 import { Grid } from 'semantic-ui-react';
 
@@ -21,19 +21,19 @@ class App extends Component {
   }
 
   componentDidUpdate = () => {
-    window.scrollTo(0, 0)
+    return window.scrollTo(0, 0)
   }
 
-  handleSearch (e){
-    this.setState({ searchTerm: e.target.value.toLowerCase() })
+  handleSearch = (e) => {
+    return this.setState({ searchTerm: e.target.value.toLowerCase() })
   }
 
   handleFilter = (e) => {
-    e.target.value === "No Filter" ? this.setState({ filterRating:"" }) : this.setState({ filterRating: e.target.value})
+    return e.target.value === "No Filter" ? this.setState({ filterRating:"" }) : this.setState({ filterRating: e.target.value})
   }
 
   selectShow = (show) => {
-    Adapter.getShowEpisodes(show.id)
+    return Adapter.getShowEpisodes(show.id)
     .then((episodes) => this.setState({
       selectedShow: show,
       episodes
@@ -56,7 +56,7 @@ class App extends Component {
         <Nav handleFilter={this.handleFilter} handleSearch={this.handleSearch} searchTerm={this.state.searchTerm}/>
         <Grid celled>
           <Grid.Column width={5}>
-            {!!this.state.selectedShow ? <SelectedShowContainer selectedShow={this.state.selectedShow} allEpisodes={this.state.episodes}/> : <div/>}
+            {this.state.selectedShow ? <SelectedShowContainer selectedShow={this.state.selectedShow} allEpisodes={this.state.episodes}/> : <div/>}
           </Grid.Column>
           <Grid.Column width={11}>
             <TVShowList shows={this.displayShows()} selectShow={this.selectShow} searchTerm={this.state.searchTerm}/>
