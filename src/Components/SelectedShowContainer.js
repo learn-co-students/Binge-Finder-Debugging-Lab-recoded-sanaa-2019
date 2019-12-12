@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import Episode from './Components/Episode';
 
-class SelectedShowContainer extends Component {
+export class SelectedShowContainer extends Component {
 
   state = {
     selectedSeason: 1,
@@ -51,7 +51,7 @@ class SelectedShowContainer extends Component {
 
 }
 
-export SelectedShowContainer;
+
 
 
 Array.prototype.unique = function() {
