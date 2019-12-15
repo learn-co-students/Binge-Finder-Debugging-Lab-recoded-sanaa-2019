@@ -5,7 +5,7 @@ const Episode = (props) => {
 
   return (
     <div>
-      Episode {myEpisode.number} - {myEpisode.name}
+     Episode {myEpisode.number} - {myEpisode.name}
     </div>
   )
 }
