@@ -4,6 +4,7 @@ import TVShowList from './TVShowList';
 import Nav from './Nav';
 import SelectedShowContainer from './SelectedShowContainer';
 import { Grid } from 'semantic-ui-react';
+import ReactDOM from 'react-dom';
 
 
 
