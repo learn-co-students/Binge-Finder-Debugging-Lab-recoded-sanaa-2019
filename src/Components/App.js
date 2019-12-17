@@ -7,6 +7,7 @@ import { Grid } from 'semantic-ui-react';
 
 
 
+
 class App extends Component {
   state = {
     shows: [],
