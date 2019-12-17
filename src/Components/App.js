@@ -6,7 +6,6 @@ import SelectedShowContainer from './SelectedShowContainer';
 import { Grid } from 'semantic-ui-react';
 
 
-
 class App extends Component {
   state = {
     shows: [],
@@ -32,13 +31,14 @@ class App extends Component {
     e.target.value === "No Filter" ? this.setState({ filterRating:"" }) : this.setState({ filterRating: e.target.value})
   }
 
-  selectShow = (show) => {
-    Adapter.getShowEpisodes(show.id)
-    .then((episodes) => this.setState({
-      selectedShow: show,
-      episodes
-    }))
-  }
+  selectShow = show => {
+    Adapter.getShowEpisodes(show.id).then(episodes =>
+      this.setState({
+        selectedShow: show,
+        episodes: episodes
+      })
+    );
+  };
 
   displayShows = () => {
     if (this.state.filterByRating){
